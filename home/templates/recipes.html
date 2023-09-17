@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block start %}
-
+<h4> <a href="contact/">Contact</a> </h4>
 <dev class="container mt-5">
     <form class="col-6 mx-auto card p-3 shadow-lg" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
@@ -24,7 +24,7 @@
         <button type="submit" class="btn btn-success">Add Recipe</button>
       </form>
 
-      {{recipes}}
+      <br>
 
       <table class="table">
         <thead>
@@ -47,8 +47,10 @@
             <td>
               <img src="/media/{{recipe.recipe_image}}" style="height: 100px"> </td>
               <td>
-                <a href="/delete_recipe/{{recipe.id}}/" class="btn btn-danger">DELETE</a>
+                <a href="/delete_recipe/{{recipe.id}}/" class="btn btn-danger mb-2">DELETE</a>
+                <a href="/update_recipe/{{recipe.id}}/" class="btn btn-primary">UPDATE</a>
               </td>
+              
           </tr>
           {% endfor %}
         </tbody>
